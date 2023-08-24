@@ -11,8 +11,8 @@ import {
 import ClearIcon from "@mui/icons-material/Clear";
 
 export function RecipeItem({ recipe, recipeActions }) {
-  const ingredients = recipe.ingredients.split("\n")
-  const instructions = recipe.instructions.split("\n")
+  const ingredients = recipe.ingredients.split("\n");
+  const instructions = recipe.instructions.split("\n");
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
@@ -20,7 +20,8 @@ export function RecipeItem({ recipe, recipeActions }) {
       </Grid>
       <Grid item xs={12}>
         <List>
-          Ingredients: {ingredients.map((item, index) => (
+          Ingredients:{" "}
+          {ingredients.map((item, index) => (
             <ListItem key={index}>
               <ListItemText primary={item} />
             </ListItem>
@@ -28,8 +29,9 @@ export function RecipeItem({ recipe, recipeActions }) {
         </List>
       </Grid>
       <Grid item xs={12}>
-      <List>
-          Instructions: {instructions.map((item, index) => (
+        <List>
+          Instructions:{" "}
+          {instructions.map((item, index) => (
             <ListItem key={index}>
               <ListItemText primary={item} />
             </ListItem>
@@ -38,18 +40,18 @@ export function RecipeItem({ recipe, recipeActions }) {
       </Grid>
       <Grid item>
         {/* <ListItemSecondaryAction> */}
-          <IconButton
-            data-testid="recipe-delete-button"
-            edge="end"
-            size="small"
-            onClick={() => {
-              recipeActions.deleteRecipe(recipe);
-            }}
-          >
-            <ClearIcon />
-          </IconButton>
+        <IconButton
+          data-testid="recipe-delete-button"
+          edge="end"
+          size="small"
+          onClick={() => {
+            recipeActions.deleteRecipe(recipe);
+          }}
+        >
+          <ClearIcon />
+        </IconButton>
         {/* </ListItemSecondaryAction> */}
-        </Grid>
+      </Grid>
     </Grid>
   );
 }

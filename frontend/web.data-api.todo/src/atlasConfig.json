@@ -1,8 +1,8 @@
 {
-    "appId": "recipeapp-dvada",
-    "appUrl": "https://realm.mongodb.com/groups/6321dab657ec8d698d63874f/apps/6480f52123c674915d8960a3",
-    "baseUrl": "https://realm.mongodb.com",
-    "clientApiBaseUrl": "https://us-east-1.aws.realm.mongodb.com",
-    "dataApiBaseUrl": "https://us-east-1.aws.data.mongodb-api.com",
-    "dataSourceName": "mongodb-atlas"
+  "appId": "serverless-endpoints-sdate",
+  "appUrl": "https://realm.mongodb.com/groups/62960ae3683bef54c358ce73/apps/64e4b587e069ab6f302c9978",
+  "baseUrl": "https://realm.mongodb.com",
+  "clientApiBaseUrl": "https://eu-west-1.aws.realm.mongodb.com",
+  "dataApiBaseUrl": "https://eu-west-1.aws.data.mongodb-api.com",
+  "dataSourceName": "serverless-web"
 }

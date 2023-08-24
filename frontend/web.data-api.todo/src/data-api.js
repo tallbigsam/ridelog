@@ -115,16 +115,15 @@ export class DataApi {
    * @returns {object} - The response body for the action.
    */
   async action(route, input) {
+    console.log("Route: ", route);
     if (!this.currentUser) {
       throw new Error(`Must be logged in to call a HTTPS endpoint`);
     }
     // If the current user access token is expired, try to refresh the
     // session and get a new access token.
     await this.client.refreshExpiredAccessToken();
-    const url = new URL(
-      `/app/${this.appId}/endpoint/${route}`,
-      this.baseUrl
-    ).href;
+    const url = new URL(`/app/${this.appId}/endpoint/${route}`, this.baseUrl)
+      .href;
     const resp = await fetch(url, {
       method: "POST",
       headers: {
@@ -138,7 +137,8 @@ export class DataApi {
 
     if (resp.status === 200 || resp.status === 201) {
       if (route == "getRecipes") {
-        const new_response = {documents: response};
+        console.log("Response from getRecipes: ", response);
+        const new_response = { documents: response };
         return new_response;
       }
       return response;
@@ -167,7 +167,7 @@ export class DataApi {
    * @param {FindInput} input - The request body for the action.
    * @returns {Promise<FindResult>} - The response body for the action.
    */
-   getRecipes = async (input) => {
+  getRecipes = async (input) => {
     return this.action("getRecipes", input);
   };
 
@@ -187,7 +187,7 @@ export class DataApi {
    * @param {InsertOneInput} input - The request body for the action.
    * @returns {Promise<InsertOneResult>} - The response body for the action.
    */
-   addRecipe = async (input) => {
+  addRecipe = async (input) => {
     return this.action("addRecipe", input);
   };
 
@@ -207,7 +207,7 @@ export class DataApi {
    * @param {DeleteInput} input - The request body for the action.
    * @returns {Promise<DeleteResult>} - The response body for the action.
    */
-   deleteRecipe = async (input) => {
+  deleteRecipe = async (input) => {
     return this.action("deleteRecipe", input);
   };
 }

@@ -2,11 +2,7 @@ import React from "react";
 import { EJSON, ObjectId } from "bson";
 import atlasConfig from "../atlasConfig.json";
 import { useDataApi } from "./useDataApi";
-import {
-  addValueAtIndex,
-  removeValueAtIndex,
-  getRecipeIndex,
-} from "../utils";
+import { addValueAtIndex, removeValueAtIndex, getRecipeIndex } from "../utils";
 
 const { dataSourceName } = atlasConfig;
 
@@ -14,7 +10,7 @@ const recipeCollection = {
   dataSource: dataSourceName,
   database: "recipes",
   collection: "recipe",
-}
+};
 
 export function useRecipes() {
   // Set up a list of recipes in state
@@ -25,6 +21,7 @@ export function useRecipes() {
   // Fetch all recipes on load and whenever our collection changes (e.g. if the current user changes)
   React.useEffect(() => {
     if (api.currentUser) {
+      console.log("api.currentUser: ", api.currentUser);
       (async () => {
         try {
           const { documents } = await api.getRecipes({
@@ -35,7 +32,7 @@ export function useRecipes() {
           setRecipes(documents);
           setLoading(false);
         } catch (err) {
-          console.error(err)
+          console.error(err);
         }
       })();
     }
@@ -44,7 +41,11 @@ export function useRecipes() {
   // Given a draft recipe, format it and then insert it
   const saveRecipe = async (draftRecipe) => {
     // Instead of a summary, I would need to change this to recipe name, list of ingredientsa
-    if (draftRecipe.title && draftRecipe.ingredients && draftRecipe.instructions) {
+    if (
+      draftRecipe.title &&
+      draftRecipe.ingredients &&
+      draftRecipe.instructions
+    ) {
       try {
         const document = {
           ...draftRecipe,
@@ -75,7 +76,7 @@ export function useRecipes() {
   // Delete a given recipe
   const deleteRecipe = async (recipe) => {
     await api.deleteRecipe({
-       title: recipe.title
+      title: recipe.title,
     });
     setRecipes((oldRecipes) => {
       const idx = getRecipeIndex(oldRecipes, recipe);
