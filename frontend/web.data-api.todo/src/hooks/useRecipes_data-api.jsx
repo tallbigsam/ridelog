@@ -16,7 +16,28 @@ export function useRecipes() {
   // Set up a list of recipes in state
   const api = useDataApi();
   const [recipes, setRecipes] = React.useState([]);
+  const [rides, setRides] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
+
+  // Fetch all rides on load and whenever our collection changes (e.g. if the current user changes)
+  React.useEffect(() => {
+    if (api.currentUser) {
+      console.log("api.currentUser: ", api.currentUser);
+      (async () => {
+        try {
+          const { documents } = await api.getRides({
+            ...recipeCollection,
+            filter: {},
+          });
+          console.log("documents: " + documents);
+          setRecipes(documents);
+          setLoading(false);
+        } catch (err) {
+          console.error(err);
+        }
+      })();
+    }
+  }, [api, api.currentUser?.id]);
 
   // Fetch all recipes on load and whenever our collection changes (e.g. if the current user changes)
   React.useEffect(() => {
@@ -87,6 +108,7 @@ export function useRecipes() {
   return {
     loading,
     recipes,
+    rides,
     saveRecipe,
     deleteRecipe,
   };

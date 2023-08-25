@@ -8,7 +8,7 @@ import atlasConfig from "../atlasConfig.json";
 import "./App.css";
 const { appId } = atlasConfig;
 
-const location = { deployment_model: "GLOBAL" };
+const location = { deployment_model: "LOCAL" };
 export default function ProvidedApp() {
   return (
     <ThemeProvider>
@@ -39,7 +39,8 @@ function App() {
           ) : null}
         </Toolbar>
       </AppBar>
-      {currentUser ? <RecipeItemsPage /> : <WelcomePage />}
+      {/* {currentUser ? <RecipeItemsPage /> : <WelcomePage />} */}
+      {currentUser ? <RideLogsPage /> : <WelcomePage />}
     </div>
   );
 }

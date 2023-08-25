@@ -210,4 +210,8 @@ export class DataApi {
   deleteRecipe = async (input) => {
     return this.action("deleteRecipe", input);
   };
+
+  getRide = async (input) => {
+    return this.action("getRide", input);
+  };
 }
