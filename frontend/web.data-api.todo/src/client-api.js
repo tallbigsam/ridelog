@@ -169,7 +169,6 @@ export class ClientApi {
     return this.currentUser;
   };
 
-
   /**
    * Get a new access token with a refresh token.
    * @param {object} input
@@ -187,6 +186,9 @@ export class ClientApi {
     });
     if (response.status === 200) {
       return await response.json();
+    } else if (response.status === 404) {
+      console.log("Error getting refresh: ", response);
+      throw new ClientApiError(await response.json());
     } else {
       throw new ClientApiError(await response.json());
     }

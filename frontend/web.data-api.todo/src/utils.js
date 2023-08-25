@@ -34,11 +34,11 @@ export function removeValueAtIndex(arr, idx) {
 }
 
 export const createObjectId = () => {
-  return EJSON.deserialize(new ObjectId())
+  return EJSON.deserialize(new ObjectId());
 };
 
 export const getRecipeId = (recipe) => {
-  return recipe._id.$oid
+  return recipe._id.$oid;
 };
 
 export const isSameRecipe = (recipe1, recipe2) =>
@@ -47,4 +47,16 @@ export const isSameRecipe = (recipe1, recipe2) =>
 export const getRecipeIndex = (recipes, recipe) => {
   const idx = recipes.findIndex((r) => isSameRecipe(r, recipe));
   return idx >= 0 ? idx : null;
-}
+};
+
+export const getRideLogId = (rideLog) => {
+  return rideLog._id.$oid;
+};
+
+export const isSameRideLog = (rideLog1, rideLog2) =>
+  getRideLogId(rideLog1) === getRideLogId(rideLog2);
+
+export const getRideLogIndex = (rideLogs, rideLog) => {
+  const idx = rideLogs.findIndex((r) => isSameRideLog(r, rideLog));
+  return idx >= 0 ? idx : null;
+};

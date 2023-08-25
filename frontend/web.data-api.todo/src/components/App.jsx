@@ -1,6 +1,7 @@
 import { AppBar, Toolbar, Button, Typography } from "@mui/material";
 import { WelcomePage } from "./WelcomePage";
 import { RecipeItemsPage } from "./RecipeItemsPage";
+import { RideLogsPage } from "./RideLogsPage";
 import { DataApiProvider, useDataApi } from "../hooks/useDataApi";
 import { ThemeProvider } from "./Theme";
 import { AppName } from "./AppName";

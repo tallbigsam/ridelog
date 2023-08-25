@@ -1,20 +1,20 @@
 import React from "react";
 import { createObjectId } from "../utils";
 
-export function useDraftRecipes() {
+export function useDraftRideLogs() {
   const [drafts, setDrafts] = React.useState([]);
 
-  const createDraftRecipe = () => {
-    const draftRecipe = {
+  const createDraftRideLog = () => {
+    const draftRideLog = {
       _id: createObjectId(),
       title: "",
       ingredients: [],
       instructions: [],
     };
-    setDrafts((d) => [...d, draftRecipe]);
+    setDrafts((d) => [...d, draftRideLog]);
   };
 
-  const setDraftRecipeTitle = (draft, title) => {
+  const setDraftRideLogTitle = (draft, title) => {
     setDrafts((oldDrafts) => {
       const idx = oldDrafts.findIndex((d) => d._id === draft._id);
       return [
@@ -25,29 +25,29 @@ export function useDraftRecipes() {
     });
   };
 
-  const setDraftRecipeIngredients = (draft, ingredients) => {
+  const setDraftRideLogDescription = (draft, description) => {
     setDrafts((oldDrafts) => {
       const idx = oldDrafts.findIndex((d) => d._id === draft._id);
       return [
         ...oldDrafts.slice(0, idx),
-        { ...oldDrafts[idx], ingredients },
+        { ...oldDrafts[idx], description },
         ...oldDrafts.slice(idx + 1),
       ];
     });
   };
 
-  const setDraftRecipeInstructions = (draft, instructions) => {
+  const setDraftRideLogRoute = (draft, route) => {
     setDrafts((oldDrafts) => {
       const idx = oldDrafts.findIndex((d) => d._id === draft._id);
       return [
         ...oldDrafts.slice(0, idx),
-        { ...oldDrafts[idx], instructions },
+        { ...oldDrafts[idx], route },
         ...oldDrafts.slice(idx + 1),
       ];
     });
   };
 
-  const deleteDraftRecipe = (draft) => {
+  const deleteDraftRideLog = (draft) => {
     setDrafts((oldDrafts) => {
       const idx = oldDrafts.findIndex((d) => d._id === draft._id);
       return [...oldDrafts.slice(0, idx), ...oldDrafts.slice(idx + 1)];
@@ -55,11 +55,11 @@ export function useDraftRecipes() {
   };
 
   return {
-    draftRecipes: drafts,
-    createDraftRecipe,
-    setDraftRecipeTitle,
-    setDraftRecipeIngredients,
-    setDraftRecipeInstructions,
-    deleteDraftRecipe,
+    draftRideLogs: drafts,
+    createDraftRideLog,
+    setDraftRideLogTitle,
+    setDraftRideLogDescription,
+    setDraftRideLogRoute,
+    deleteDraftRideLog,
   };
 }

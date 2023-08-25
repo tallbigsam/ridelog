@@ -37,7 +37,7 @@
   height: calc(100% - 64px);
 }
 
-.recipe-items-container {
+.ridelog-items-container {
   display: flex;
   flex-direction: column;
   align-items: center;

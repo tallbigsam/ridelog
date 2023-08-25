@@ -136,11 +136,7 @@ export class DataApi {
     const response = await resp.json();
 
     if (resp.status === 200 || resp.status === 201) {
-      if (route == "getRecipes") {
-        console.log("Response from getRecipes: ", response);
-        const new_response = { documents: response };
-        return new_response;
-      }
+      console.log("Response: ", response);
       return response;
     } else {
       throw new Error(response);
@@ -171,6 +167,10 @@ export class DataApi {
     return this.action("getRecipes", input);
   };
 
+  getRideLogs = async (input) => {
+    return this.action("getRideLogs", input);
+  };
+
   /**
    * @typedef {Object} InsertOneInput
    * @property {string} dataSource - The name of the data source to use.
@@ -189,6 +189,15 @@ export class DataApi {
    */
   addRecipe = async (input) => {
     return this.action("addRecipe", input);
+  };
+
+  /**
+   * Insert a single rideLog into the collection.
+   * @param {InsertOneInput} input - The request body for the action.
+   * @returns {Promise<InsertOneResult>} - The response body for the action.
+   */
+  addRideLog = async (input) => {
+    return this.action("addRideLog", input);
   };
 
   /**
@@ -211,7 +220,12 @@ export class DataApi {
     return this.action("deleteRecipe", input);
   };
 
-  getRide = async (input) => {
-    return this.action("getRide", input);
+  /**
+   * Delete a single rideLog from a collection.
+   * @param {DeleteInput} input - The request body for the action.
+   * @returns {Promise<DeleteResult>} - The response body for the action.
+   */
+  deleteRideLog = async (input) => {
+    return this.action("deleteRideLog", input);
   };
 }
