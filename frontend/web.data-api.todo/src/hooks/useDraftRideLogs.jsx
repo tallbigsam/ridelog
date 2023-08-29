@@ -8,6 +8,7 @@ export function useDraftRideLogs() {
     const draftRideLog = {
       _id: createObjectId(),
       title: "",
+      isDogFriendly: false,
       ingredients: [],
       instructions: [],
     };
@@ -20,6 +21,17 @@ export function useDraftRideLogs() {
       return [
         ...oldDrafts.slice(0, idx),
         { ...oldDrafts[idx], title },
+        ...oldDrafts.slice(idx + 1),
+      ];
+    });
+  };
+
+  const setDraftRideLogDogFriendly = (draft, isDogFriendly) => {
+    setDrafts((oldDrafts) => {
+      const idx = oldDrafts.findIndex((d) => d._id === draft._id);
+      return [
+        ...oldDrafts.slice(0, idx),
+        { ...oldDrafts[idx], isDogFriendly },
         ...oldDrafts.slice(idx + 1),
       ];
     });
@@ -58,6 +70,7 @@ export function useDraftRideLogs() {
     draftRideLogs: drafts,
     createDraftRideLog,
     setDraftRideLogTitle,
+    setDraftRideLogDogFriendly,
     setDraftRideLogDescription,
     setDraftRideLogRoute,
     deleteDraftRideLog,

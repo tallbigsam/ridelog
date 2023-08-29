@@ -15,12 +15,25 @@ export function RideLog({ rideLog, rideLogActions }) {
   const route = rideLog.route.split("\n");
   // const funFactor = rideLog.funFactor.split("\n");
   return (
-    <Grid container spacing={2}>
+    <Grid container>
+      <Grid item xs={12}>
+        <h2>
+          <em>Name:</em>&nbsp;&nbsp;&nbsp;{rideLog.title}
+        </h2>
+      </Grid>
       <Grid item xs={12}>
         <b>
-          <em>Name:</em>
-        </b>{" "}
-        {rideLog.title}
+          {rideLog.isDogFriendly && (
+            <p>
+              <em>Dog Friendly:</em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x1F436;
+            </p>
+          )}
+          {!rideLog.isDogFriendly && (
+            <p>
+              <em>Dog Friendly:</em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x274C;
+            </p>
+          )}
+        </b>
       </Grid>
       <Grid item xs={12}>
         <List>

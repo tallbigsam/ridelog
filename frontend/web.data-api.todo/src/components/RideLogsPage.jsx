@@ -28,9 +28,7 @@ export function RideLogsPage() {
       ) : (
         <div className="ridelog-items-container">
           <Typography component="p" variant="h5">
-            {`${rideLogs.length} Ride Log${
-              rideLogs.length === 1 ? "" : "s"
-            } logged.`}
+            {`${rideLogs.length} Ride Log${rideLogs.length === 1 ? "" : "s"}`}
           </Typography>
           <Button
             variant="contained"

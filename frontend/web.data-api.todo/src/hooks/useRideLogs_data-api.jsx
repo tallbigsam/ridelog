@@ -42,6 +42,7 @@ export function useRideLogs() {
   // Given a draft recipe, format it and then insert it
   const saveRideLog = async (draftRideLog) => {
     // Instead of a summary, I would need to change this to recipe name, list of ingredientsa
+    console.log("Saving: ", draftRideLog);
     if (
       draftRideLog.title &&
       draftRideLog.ingredients &&
@@ -52,7 +53,7 @@ export function useRideLogs() {
           ...draftRideLog,
           owner_id: api.currentUser.id,
         };
-        console.log("adding rideLog:" + document);
+        console.log("adding rideLog:" + JSON.stringify(document));
         await api.addRideLog({
           ...document,
         });

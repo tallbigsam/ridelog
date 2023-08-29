@@ -7,13 +7,14 @@ import {
   ListItem,
   ListItemSecondaryAction,
   ListItemText,
+  FormControlLabel,
 } from "@mui/material";
 import ClearIcon from "@mui/icons-material/Clear";
 
 export function DraftRideLog({ rideLog, rideLogActions, draftRideLogActions }) {
   return (
     <Grid container spacing={2}>
-      <Grid item xs={4}>
+      <Grid item xs={6}>
         <TextField
           // style={{ width: "100%" }}
           // size="small"
@@ -24,7 +25,21 @@ export function DraftRideLog({ rideLog, rideLogActions, draftRideLogActions }) {
           }}
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={6} id="is-dog-friendly">
+        Dog Friendly
+        <input
+          label="Dog Friendly"
+          type="checkbox"
+          checked={rideLog.isDogFriendly}
+          onChange={(e) => {
+            draftRideLogActions.setDraftRideLogDogFriendly(
+              rideLog,
+              !rideLog.isDogFriendly
+            );
+          }}
+        />
+      </Grid>
+      <Grid item xs="auto">
         <TextField
           // style={{ width: "100%" }}
           // size="small"
@@ -40,7 +55,7 @@ export function DraftRideLog({ rideLog, rideLogActions, draftRideLogActions }) {
           }}
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs="auto">
         <TextField
           // style={{ width: "100%" }}
           // size="small"
