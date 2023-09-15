@@ -1,0 +1,16 @@
+getRideLog
+
+    // Querying a mongodb service:
+    return context.services.get("serverless-web").db("bikes").collection("rideLogs").find({});
+
+addRideLog
+
+    bodyJSON = JSON.parse(body.text());
+    insertionDoc = {"owner_id":bodyJSON.owner_id, "title":bodyJSON.title, "description":bodyJSON.description, "route":bodyJSON.route, "isDogFriendly":bodyJSON.isDogFriendly};
+    
+    return context.services.get("serverless-web").db("bikes").collection("rideLogs").insertOne(insertionDoc);
+
+deleteRideLog
+
+    rideLogToDelete = JSON.parse(body.text());
+    return context.services.get("serverless-web").db("bikes").collection("rideLogs").findOneAndDelete(rideLogToDelete);
