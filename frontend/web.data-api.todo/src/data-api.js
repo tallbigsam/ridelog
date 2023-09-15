@@ -144,51 +144,12 @@ export class DataApi {
   }
 
   /**
-   * @typedef {Object} FindInput
-   * @property {string} dataSource - The name of the data source to use.
-   * @property {string} database - The name of the database to use.
-   * @property {string} collection - The name of the collection to use.
-   * @property {object} [filter] - A MongoDB query filter to match documents.
-   * @property {object} [projection] - A MongoDB projection to control which fields are returned.
-   * @property {object} [sort] - A MongoDB sort specification to control the order of the results.
-   * @property {number} [skip] - The number of documents to skip before returning results.
-   * @property {number} [limit] - The maximum number of documents to return.
-   *
-   * @typedef {Object} FindResult
-   * @property {object[]} documents - The documents that matched the filter.
-   */
-
-  /**
    * Returns all documents in a collection.
    * @param {FindInput} input - The request body for the action.
    * @returns {Promise<FindResult>} - The response body for the action.
    */
-  getRecipes = async (input) => {
-    return this.action("getRecipes", input);
-  };
-
   getRideLogs = async (input) => {
     return this.action("getRideLogs", input);
-  };
-
-  /**
-   * @typedef {Object} InsertOneInput
-   * @property {string} dataSource - The name of the data source to use.
-   * @property {string} database - The name of the database to use.
-   * @property {string} collection - The name of the collection to use.
-   * @property {object} document - The document to insert.
-   *
-   * @typedef {Object} InsertOneResult
-   * @property {string} insertedId - The _id of the inserted document.
-   */
-
-  /**
-   * Insert a single recipe into the collection.
-   * @param {InsertOneInput} input - The request body for the action.
-   * @returns {Promise<InsertOneResult>} - The response body for the action.
-   */
-  addRecipe = async (input) => {
-    return this.action("addRecipe", input);
   };
 
   /**
@@ -198,26 +159,6 @@ export class DataApi {
    */
   addRideLog = async (input) => {
     return this.action("addRideLog", input);
-  };
-
-  /**
-   * @typedef {Object} DeleteInput
-   * @property {string} dataSource - The name of the data source to use.
-   * @property {string} database - The name of the database to use.
-   * @property {string} collection - The name of the collection to use.
-   * @property {object} filter - A MongoDB query filter to match documents.
-   *
-   * @typedef {Object} DeleteResult
-   * @property {number} deletedCount - The number of documents that were deleted.
-   */
-
-  /**
-   * Delete a single recipe from a collection.
-   * @param {DeleteInput} input - The request body for the action.
-   * @returns {Promise<DeleteResult>} - The response body for the action.
-   */
-  deleteRecipe = async (input) => {
-    return this.action("deleteRecipe", input);
   };
 
   /**

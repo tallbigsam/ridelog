@@ -1,8 +1,8 @@
 {
-  "appId": "serverless-endpoints-sdate",
-  "appUrl": "https://realm.mongodb.com/groups/62960ae3683bef54c358ce73/apps/64e4b587e069ab6f302c9978",
+  "appId": "bikes-app-vocih",
+  "appUrl": "https://realm.mongodb.com/groups/62960ae3683bef54c358ce73/apps/64ef708fb7434eb7423eb1a9",
   "baseUrl": "https://realm.mongodb.com",
   "clientApiBaseUrl": "https://eu-west-1.aws.realm.mongodb.com",
   "dataApiBaseUrl": "https://eu-west-1.aws.data.mongodb-api.com",
-  "dataSourceName": "serverless-web"
+  "dataSourceName": "bikesapplication"
 }

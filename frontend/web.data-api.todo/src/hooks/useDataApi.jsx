@@ -32,13 +32,9 @@ export const DataApiProvider = ({ appId, location, children }) => {
       registerUser: api.registerUser,
       emailPasswordAuth: api.emailPasswordAuth,
       // HTTPS Endpoints
-      getRecipes: api.getRecipes,
       getRideLogs: api.getRideLogs,
-      addRecipe: api.addRecipe,
       addRideLog: api.addRideLog,
-      deleteRecipe: api.deleteRecipe,
       deleteRideLog: api.deleteRideLog,
-      getRides: api.getRides,
     };
   }, [api, currentUser]);
   return (

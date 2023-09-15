@@ -1,6 +1,5 @@
 import { AppBar, Toolbar, Button, Typography } from "@mui/material";
 import { WelcomePage } from "./WelcomePage";
-import { RecipeItemsPage } from "./RecipeItemsPage";
 import { RideLogsPage } from "./RideLogsPage";
 import { DataApiProvider, useDataApi } from "../hooks/useDataApi";
 import { ThemeProvider } from "./Theme";
@@ -40,7 +39,6 @@ function App() {
           ) : null}
         </Toolbar>
       </AppBar>
-      {/* {currentUser ? <RecipeItemsPage /> : <WelcomePage />} */}
       {currentUser ? <RideLogsPage /> : <WelcomePage />}
     </div>
   );
