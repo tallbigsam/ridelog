@@ -1,8 +1,7 @@
 {
-    "app_id": "recipeapp-dvada",
     "config_version": 20210101,
-    "name": "RecipeApp",
-    "location": "US-VA",
-    "provider_region": "aws-us-east-1",
+    "app_id": "bikes-app-mavib",
+    "name": "bikes-app",
+    "location": "IE",
     "deployment_model": "LOCAL"
 }
