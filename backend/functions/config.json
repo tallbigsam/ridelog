@@ -5,7 +5,21 @@
     "can_evaluate": {}
   },
   {
-    "name": "FTSPoVService_ftspovhooktypeahead",
+    "name": "getRideLogs",
+    "private": false,
+    "run_as_system": true,
+    "run_as_user_id": "",
+    "run_as_user_id_script_source": ""
+  },
+  {
+    "name": "deleteRideLog",
+    "private": false,
+    "run_as_system": true,
+    "run_as_user_id": "",
+    "run_as_user_id_script_source": ""
+  },
+  {
+    "name": "addRideLog",
     "private": false,
     "run_as_system": true,
     "run_as_user_id": "",
